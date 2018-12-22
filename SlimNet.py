@@ -8,7 +8,11 @@ class SlimNet(chainer.Chain):
         self.batch = batchsize
 
         with self.init_scope():
+            self.conv1 = L.Convolution2D(in_ch, 8)
             self.value = Linear3D(in_ch, in_ch)
+    
+    def __call__(self, x):
+
             
 class Linear3D(L.Linear):
     def __init__(self, *args, **kwargs):
